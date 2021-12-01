@@ -1,0 +1,7 @@
+%\VignetteIndexEntry{CAMMLQuick}
+\documentclass{article}
+\usepackage{pdfpages}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\includepdf[pages=-, fitpaper=true]{./Quick_Vignette1.pdf}
+\end{document}
