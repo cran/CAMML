@@ -109,7 +109,10 @@ CAMML <- function(seurat, gene.set.df){
   
   gene.set.collection = createGeneSetCollection(gene.ids=ensembl.ids,
                                                 gene.set.collection=gene.set.collection)
-  
+  for (i in 1:length(gene.set.collection)){
+    names(gene.set.collection[[i]]) <- substr(names(gene.set.collection[[i]]),1,15)
+    gene.set.collection[[i]] <- gene.set.collection[[i]][!duplicated(substr(names(gene.set.collection[[i]]),1,15))]
+  }
   #remove NA genes
   df <- df[!is.na(df$ensembl.id),]
   
@@ -128,7 +131,7 @@ CAMML <- function(seurat, gene.set.df){
         gwi <- c(gwi, which(df$ensembl.id==names(gene.set.collection[[j]][i])))
       }
       gwi <- intersect(gwi, which(df$cell.type == names(gene.set.collection)[j]))
-      gene.w[[j]] <- (as.double(df$gene.weight[gwi]))
+      gene.w[[j]] <- unique(as.double(df$gene.weight[gwi]))
     }
   }
   

@@ -35,7 +35,7 @@
 BuildGeneSets <- function(exp.data, labels = as.character(Idents(exp.data)),  cutoff.type = "logfc", cutoff = 2, species = "Hs", weight.type = "logfc") {
   #access human reference data
   if (! is.matrix(exp.data)){
-    if (class(exp.data) == "Seurat" & is.object(exp.data)){
+    if (is(exp.data, "Seurat")){
       colcount <- exp.data@assays$RNA@counts
     }
     else{
