@@ -131,7 +131,7 @@ CAMML <- function(seurat, gene.set.df){
         gwi <- c(gwi, which(df$ensembl.id==names(gene.set.collection[[j]][i])))
       }
       gwi <- intersect(gwi, which(df$cell.type == names(gene.set.collection)[j]))
-      gene.w[[j]] <- unique(as.double(df$gene.weight[gwi]))
+      gene.w[[j]] <- (as.double(df$gene.weight[gwi]))
     }
   }
   
