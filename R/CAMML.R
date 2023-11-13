@@ -27,7 +27,7 @@
 
 
 CAMML <- function(seurat, gene.set.df){
-  len <- nrow(seurat@assays$RNA@data)
+  len <- nrow(seurat@assays$RNA)
   
   if (missing(seurat)) {
     stop("Missing Seurat Object.")

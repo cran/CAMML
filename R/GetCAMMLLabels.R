@@ -46,7 +46,7 @@ GetCAMMLLabels <- function(seurat, labels = "top1"){
   #find labels
   for (i in 1:le){
     #take data and label
-    dif <- data.frame(seurat@assays$CAMML[,i])
+    dif <- data.frame(seurat@assays$CAMML@data[,i])
     dif <- data.frame(dif[order(-dif[,1]), , drop = FALSE])
     #for cells with no scores, skip
     if (max(dif) == 0){

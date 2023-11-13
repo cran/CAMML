@@ -2,6 +2,5 @@
 \documentclass{article}
 \usepackage{pdfpages}
 \begin{document}
-\SweaveOpts{concordance=TRUE}
-\includepdf[pages=-, fitpaper=true]{./Vignette1.pdf}
+\includepdf{./Vignette1.pdf}
 \end{document}
